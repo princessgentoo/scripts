@@ -1,5 +1,6 @@
 #! /bin/bash
 #set -xv
+[ ! -f /usr/bin/imgur ] && read -p "al parecer es la primera vez que ejecutas este script, para poder usarlo a continuación se requiere la contraseña de sudo"; sudo wget -O /usr/bin/imgur http://imgur.com/tools/imgurbash.sh && sudo chmod +x /usr/bin/imgur
 mkdir -p /tmp/imgs
 cd /tmp/imgs
 grep "\[img\]"  "$1" | sed "s/\[url.*\].*\[\/img\]//g" | sed "s/\[img\]//g" | sed "s/\[\/img\]//g" |  sed "s/\[\/url\]//g" | sed "s/\[align=center\]//g"| sed "s/\[\/align\]//g" > /tmp/list
